@@ -14,11 +14,20 @@ function App() {
 
   return (
     <>
-      <h1 className='bg-green-400 text-black p-4 rounded-xl mb-4'>Tailwind test</h1>
-      <Card username="chaiaurcode" btnText="click me" />
+      <h1 className='bg-green-400 text-black p-4 rounded-xl mb-4 ' >Tailwind test</h1>
+      <Card username="chaiaurcode" btnText="click me" myArr={newArr} />
       <Card username="hitesh" />
     </>
   )
 }
 
 export default App
+
+
+
+/* Passing props:Arrays,objects and text
+Use {},same as evaluated expression to pass objects and arrays Eg.myArr (above code)
+For passing string/text,send it as an attribute value < username="Hello0>"
+
+
+*/

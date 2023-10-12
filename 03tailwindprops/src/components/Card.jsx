@@ -17,7 +17,7 @@ function Card({username, btnText="visit me"}) {
       debitis?
     </p>
     <button className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white">
-      {btnText } →
+      {btnText} →
     </button>
   </div>
 </div>
@@ -25,3 +25,18 @@ function Card({username, btnText="visit me"}) {
 }
 
 export default Card
+
+
+/*     Accessing props
+1.)Card(props) and then props.username
+2.)Destructuring method:
+Card({username})  ->username is destructured(value extracted) from the passed prop 
+
+//Passing default props value
+Card({username, btnText="visit me"})
+Same as functions in C++,here btnText is the default prop value.If no prop value for btnText is 
+passed this is utilized.
+
+*/
+
+// Watch react interview question based on counter!!!

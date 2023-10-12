@@ -1,0 +1,37 @@
+See sir's video for installation details
+What is vite?->bundler
+Learnt about npm ready start and npm ready build.How build works.
+Use vite>>create-react-app because create-react-app is bulky and badi time lagxa install garna
+node modules hunai parxa ra  vite bata garda hudaina so npm i garera node modules install garna parxa
+
+
+
+
+
+Video-3:Understanding flow with react
+1.How js is embeded in index.html file in both create-react-app(using react-scripts dependencies) and 
+vite-react-app(by direct script tag).
+2.How react components and code is rendered to the document(webpage).
+->
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+ 
+    <App />
+  
+); 
+
+We just have a single html file.We aren't generating new html pages.It's still a SPA(single page application) 
+but we keep on changing what is getting render.But user thinks he/she is in different pages.
+
+
+Basic rules with react
+1.Keep name of components starting with Capital.Even keep components file name Capital.
+2.You can return a single element so you can return by wrapping around <div></div>.But instead
+react says use fragments <></>
+3.Using vite,vite is (military-dude-story of military-dude and cool dude) so says to keep components
+ and js files as jsx.But create-react-app uses js for javascript only and if it returns html also we 
+ use jsx as a convention.
+
+ Video4:Create your own react library and JSX
+ 1.For creating own library refer to vitereact->src->main.jsx
+
