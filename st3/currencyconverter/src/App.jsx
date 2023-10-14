@@ -6,16 +6,36 @@ import useFetchData from './hooks/useFetchData';
 function App() {
   const [currencyFrom,setCurrencyFrom]=useState("usd");
   const [currencyTo,setCurrencyTo]=useState("npr");
+  const [fromAmount,setFromAmount]=useState("0");
+  const [toAmount,setToAmount]=useState();
   let [keys,setKeys]=useState([]);      
   const  fetchedData= useFetchData(currencyFrom);   
-//    console.log(fetchedData);
+   console.log(fetchedData);
    
    useEffect(()=>{
 if (fetchedData?null:alert("No incoming data from api"));
     //  console.log(fetchedData);
-      keys=Object.keys(fetchedData);
-     console.log(keys);
+    //   keys=Object.keys(fetchedData);
+    // console.log(Object.keys(fetchedData));
+    setKeys(Object.keys(fetchedData));
+    //  console.log(keys);
  },[fetchedData])
+
+//    useEffect(()=>{
+//      console.log(currencyFrom);
+//      console.log(currencyTo);
+//      console.log(fromAmount);
+//      console.log(toAmount);
+
+
+//    },[currencyFrom,currencyTo,fromAmount,toAmount])
+   const convertCurrency=()=>{  
+       console.log("Hello");
+       setToAmount(fromAmount*fetchedData[currencyFrom]);
+       console.log(toAmount);
+    }
+  
+    
 
   return (
     <>
@@ -32,7 +52,7 @@ if (fetchedData?null:alert("No incoming data from api"));
                     >
                         <div className="w-full mb-1">
                             <InputBox
-                                label="From" keys={keys}
+                                label="From" keys={keys} currency={currencyFrom} setCurrency={setCurrencyFrom} amount={fromAmount} setAmount={setFromAmount}
                                 
                             />
                         </div>
@@ -47,11 +67,12 @@ if (fetchedData?null:alert("No incoming data from api"));
                         </div>
                         <div className="w-full mt-1 mb-4">
                             <InputBox
-                                label="To" keys={keys[0]}
+                                label="To" keys={keys} currency={currencyTo} setCurrency={setCurrencyTo} amount={toAmount} setAmount={setToAmount}
+                                
                                 
                             />
                         </div>
-                        <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+                        <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg" onClick={convertCurrency}>
                             Convert 
                         </button>
                     </form>
