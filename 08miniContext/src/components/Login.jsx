@@ -4,14 +4,15 @@ import UserContext from '../context/UserContext'
 function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-
+    const [useremail,setuserEmail]=useState('');
     const {setUser} = useContext(UserContext)  //useContext ko use garera hamle globally useContext
     //ma defined vako variables lai access garna milxa
     //syntax similar to useState and userContext here is context we defined at userContext
     const {setEmail}=useContext(UserContext);
        const handleSubmit = (e) => {
         e.preventDefault()
-        setUser({username, password})
+        setUser({username, password});
+        setEmail(useremail);
     }
   return (
     <div>
@@ -27,7 +28,7 @@ function Login() {
         placeholder='password'  />
         {" "}
         <input type='text' 
-        onChange={(e) => setEmail(e.target.value) }
+        onChange={(e) => setuserEmail(e.target.value) }
         placeholder='email'  />
         <button onClick={handleSubmit}>Submit</button>
     </div>

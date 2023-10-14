@@ -22,4 +22,4 @@ const UserContextProvider = ({children}) => {
 }
 
 export default UserContextProvider
-//defined as 
+//defined as .jsx
