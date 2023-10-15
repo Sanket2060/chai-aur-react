@@ -2,12 +2,14 @@ import { createContext, useContext } from "react";
 
 export const ThemeContext = createContext({
     themeMode: "light",
-    darkTheme: () => {},
+    darkTheme: () => {},   
     lightTheme: () => {},
 })
+// passing default values to the context 
 
 export const ThemeProvider = ThemeContext.Provider
 
-export default function useTheme(){
-    return useContext(ThemeContext)
+export default function useTheme(){   //yo syntax ko through aba defined vako values component ma
+    return useContext(ThemeContext)  //use garna parey useTheme ko use garna parxa(useState jastai)
+                                     //syntax use garera
 }
