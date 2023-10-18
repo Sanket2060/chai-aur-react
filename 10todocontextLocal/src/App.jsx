@@ -5,7 +5,10 @@ import TodoForm from './components/TodoForm'
 import TodoItem from './components/TodoItem'
 
 function App() {
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([])  
+  useEffect(()=>{
+   console.log(todos);
+  },[todos]); 
 
   const addTodo = (todo) => {
     setTodos((prev) => [{id: Date.now(), ...todo}, ...prev] )

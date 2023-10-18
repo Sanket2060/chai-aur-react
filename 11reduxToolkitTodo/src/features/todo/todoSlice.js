@@ -23,6 +23,7 @@ export const todoSlice = createSlice({
     }
 })
 
-export const {addTodo, removeTodo} = todoSlice.actions
+export const {addTodo, removeTodo} = todoSlice.actions  //one by one sabai reducers lai export ni 
+//paryo
 
-export default todoSlice.reducer
+export default todoSlice.reducer     //All reducer lai ekai chuti export ni paryo
