@@ -12,7 +12,7 @@ export const todocontext=createContext({
     deleteTodo:(id)=>{},
 })
 
-export const todoProvider=todocontext.Provider;
+export const TodoProvider=todocontext.Provider;
 
 export const  todoContext=()=>{
   return useContext(todocontext);
