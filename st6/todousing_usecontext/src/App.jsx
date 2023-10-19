@@ -36,7 +36,7 @@ function App() {
   }
   const deleteTodo=(id)=>{
      setTodos(todos.filter((todo)=>{
-          if (todo.id=id){
+          if (todo.id!=id){
             return todo;
           }
      })
