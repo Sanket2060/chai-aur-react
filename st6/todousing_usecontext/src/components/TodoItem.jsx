@@ -2,14 +2,23 @@ import React, { useEffect, useState } from 'react'
 import { todoContext } from '../../contexts/TodoContext';
 
 function TodoItem({todo}) {
-    const [isTodoEditable,setIsTodoEditable]=useState(true);
-    const {updateTodo,deleteTodo}=todoContext();
+    const [isTodoEditable,setIsTodoEditable]=useState(false);
+    const {updateTodo,deleteTodo,updateTodoIsCompleted}=todoContext();
     // const {todoMsg,setTodoMsg}=useState("");
     const [todomsg,setTodoMsg]=useState("");
+    // const [todoIsCompleted,settodoIsCompleted]=useState(todo.isCompleted);
+
+ 
    useEffect(()=>{
     // console.log(todo.todo);
     setTodoMsg(todo.todo);
    },[todo])
+   const editTodo=()=>{
+      setIsTodoEditable((prev)=>!prev)
+   }
+   const toggleCompleted=()=>{
+     updateTodoIsCompleted(todo.id);
+   }
   return (
     <div
     className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300  text-black ${
@@ -20,7 +29,7 @@ function TodoItem({todo}) {
         type="checkbox"
         className="cursor-pointer"
         checked={todo.isCompleted}
-        // onChange={toggleCompleted}
+        onChange={toggleCompleted}
     />
     <input
         type="text"
@@ -29,7 +38,7 @@ function TodoItem({todo}) {
         } ${todo.isCompleted ? "line-through" : ""}`}
         value={todomsg}
         onChange={(e) => setTodoMsg(e.target.value)}
-        readOnly={isTodoEditable}
+        readOnly={!isTodoEditable}
     />
     {/* Edit, Save Button */}
     <button

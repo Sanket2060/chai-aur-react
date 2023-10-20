@@ -6,19 +6,45 @@ import { TodoProvider } from '../contexts/TodoContext';
    
 function App() {
   const [count, setCount] = useState(0);
-  const [todos,setTodos]=useState([{id:Date.now(),isCompleted:true,todo:"Finish hw"}]);
+  const [todos,setTodos]=useState([]);
   // const [todo, settodo] = useState("");
-  const [id, setId] = useState();
   const [isCompleted,setIsCompleted]=useState(false);
 
   const addTodo=(atodo)=>{
-    console.log("I reached here");
-    setTodos((prevtodos)=>[{id:Date.now(),...atodo},...prevtodos])      //try if "prevtodos" as parameters naliyi gare
-    console.log("Todos after change:",todos);
-    console.log("I reached away from here");
+    // console.log("I reached here");
+    setTodos((prevtodos)=>{
 
-    // kasto hunthyo.Chalthyo ki chalthena??
+      if (!prevtodos) {             //sir ko ma kasto approach xa?
+        return [{ id: Date.now(), ...atodo }];
+      }
+      else {return [{ id: Date.now(), ...atodo }, ...prevtodos]};
+    })
   }
+
+
+
+  // Local storage
+  // useEffect(()=>{
+  //   localStorage.setItem("todos",JSON.stringify(todos));
+  // },[todos])
+  // useEffect(()=>{
+  //   console.log("Getting your todos from local storage");
+  //  let lstodos=JSON.parse(localStorage.getItem("todos"));
+  //  console.log(lstodos);
+  //  setTodos(lstodos);
+  // },[])
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+        setTodos(JSON.parse(storedTodos));
+    }
+}, []);
+
+useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}, [todos]);
+
+
 
   useEffect(()=>{
    console.log(todos);
@@ -28,7 +54,10 @@ function App() {
        setTodos((prevtodos)=>{
           prevtodos.map((ctodo)=>{
             if (ctodo.id==id){
-              ctodo.todo=todo;
+              return {...ctodo,todo}
+            }
+            else {
+              return ctodo
             }
           })
 
@@ -44,9 +73,25 @@ function App() {
      )
 
   }
+
+  const updateTodoIsCompleted=(id)=>{
+    setTodos((prevtodos)=>{
+      prevtodos.map((ctodo)=>{
+        if (ctodo.id==id){
+          console.log("Code reached here")
+          return {...ctodo,isCompleted:true}
+        }
+        else {
+          return ctodo
+        }
+      })
+
+   })
+  }
+
   return (
     <>
-    <TodoProvider value={{addTodo,updateTodo,deleteTodo}}>
+    <TodoProvider value={{addTodo,updateTodo,deleteTodo,updateTodoIsCompleted}}>
     <div className="bg-[#172842] min-h-screen py-8">
                 <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
                     <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>

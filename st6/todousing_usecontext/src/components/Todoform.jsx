@@ -7,7 +7,7 @@ function Todoform() {
 
     const onSubmitfunc=(e)=>{
         e.preventDefault();
-        console.log("Reached after click")
+        // console.log("Reached after click")
         addTodo({isCompleted:false,todo});
     }
   return (

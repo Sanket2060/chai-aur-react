@@ -10,6 +10,7 @@ export const todocontext=createContext({
     addTodo:(atodo)=>{},
     updateTodo:(id,atodo)=>{},
     deleteTodo:(id)=>{},
+    updateTodoIsCompleted:(id)=>{}
 })
 
 export const TodoProvider=todocontext.Provider;
