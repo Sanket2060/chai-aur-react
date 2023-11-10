@@ -2,11 +2,10 @@ import {createSlice, nanoid } from '@reduxjs/toolkit';
 
 const initialState = {
     todos: [{id: 1, text: "Hello world"}],
-    enableUpdateTodo:false
+    enableUpdateTodo:false,
+    getTodo:()=>{}
     
 }
-
-
 
 export const todoSlice = createSlice({
     name: 'todo',

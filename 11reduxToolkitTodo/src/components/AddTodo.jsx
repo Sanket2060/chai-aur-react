@@ -7,9 +7,12 @@ function AddTodo() {
     const [input, setInput] = useState('')
     const dispatch = useDispatch()
     const updateTodoNow=useSelector(state=>state.updateTodoNow)
+    const getTodo=useSelector(state=>state.getTodo)
+         
+
 
     
-
+    
     const addTodoHandler = (e) => {
         e.preventDefault()
         dispatch(addTodo(input))

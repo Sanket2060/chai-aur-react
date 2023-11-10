@@ -7,8 +7,8 @@ function Todos() {
     const dispatch = useDispatch()
   
     const updateTodoNow=(todo)=>{  
-    
-      dispatch(updateTodo(todo.id));
+      const todotitle=getTodo();
+      dispatch(updateTodo({id:todo.id,title:todotitle}));
     }
   return (
     <>

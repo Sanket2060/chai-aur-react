@@ -1,7 +1,7 @@
 Redux Toolkit for state management:
 
 A.Creating store:
--You can keep store inside App folder as a practice.
+-You can keep store inside App folder(not app.jsx file but folder) as a practice.
 1.import configure-store and create store using it.
 2.????
 
@@ -16,7 +16,7 @@ What is the initial state ?
 What are reducers?
 ->Functions defined through which we can change values at the store.i.e.They are
 the only ways to do so.These functions provide two arguments i.e. state and action.
-state:it provides current state of the store.
+state:it provides current state(state updated after initial state) of the store.
 action:it provides the values passed to the reducers using action.payload.Eg.id,todo,etc.
 
 
@@ -24,11 +24,11 @@ nanoid in Redux
 ->Used to pass unique keys
 
 C.Adding a data to store
-Using store.data_variable_in_which_to_add.push(data_to_be_pushed)
+Using store.(data variable in which to add).push(data to be pushed)
 
 D.Export
 ->Export individual functionality i.e.reducers
-->Export main source of all reducers.(to use it at store)
+->Export main source of all reducers.(to use it at store)-> Eg. export slice_name.reducers
 
 E.Define reducer at store
 ->reducer:reducer_name
